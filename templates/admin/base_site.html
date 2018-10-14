@@ -1,0 +1,12 @@
+
+<!-- saved from url=(0151)file:///C:/Program%20Files%20(x86)/Microsoft%20Visual%20Studio/Shared/Python36_64/Lib/site-packages/django/contrib/admin/templates/admin/base_site.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Polls Administration</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+</body></html>

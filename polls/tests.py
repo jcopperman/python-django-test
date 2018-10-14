@@ -1,8 +1,11 @@
 import datetime
+import unittest
 
 from django.test import TestCase
 from django.utils import timezone
 from django.urls import reverse
+
+from selenium import webdriver
 
 from .models import Question
 
@@ -125,3 +128,18 @@ class QuestionDetailViewTests(TestCase):
         url = reverse('polls:detail', args=(past_question.id,))
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
+
+
+class GoogleTestCase(unittest.TestCase):
+
+    def setUp(self):
+        self.browser = webdriver.Firefox()
+        self.addCleanup(self.browser.quit)
+
+    def testPageTitle(self):
+        self.browser.get('http://www.google.com')
+        self.assertIn('Google', self.browser.title)
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
